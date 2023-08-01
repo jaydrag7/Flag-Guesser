@@ -9,7 +9,7 @@
                 </v-btn>
             </v-row>
             <v-row justify="center" class="mt-16">
-                <v-btn height="50" width="120" variant="elevated" elevation="10" class="rounded-pill medium-btn">
+                <v-btn @click="goToGame(); games.getGames('medium')" height="50" width="120" variant="elevated" elevation="10" class="rounded-pill medium-btn">
                      Medium <v-img src="crying.png" width="20"/>
                 </v-btn>
             </v-row>

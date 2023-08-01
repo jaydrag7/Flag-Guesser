@@ -1,32 +1,32 @@
 <template>
-    <v-row style="justify-content: center;" class="mt-10">
-        <v-btn icon="mdi-home" class="" href="/"></v-btn>
+    <v-row style="justify-content: center;"  class="mt-10">
+        <v-btn icon="mdi-home" class="" href="/" color="#A8D9F8"></v-btn>
     </v-row>
     <v-col v-for="obj in game.getEasyGame">
         <v-row justify-lg="center" class="mt-10" style="justify-content: center; align-content: center;">
-        <v-card color="" width="300" height="150" :image="obj.gameData[`ques${step}`].quesImg"> 
+        <v-card color="" width="350" height="200" :image="obj.gameData[`ques${step}`].quesImg"> 
         </v-card>
     </v-row>
     <v-row no-gutters class="mr-16 mt-10" style="justify-content:center; align-content: center;">
-        <v-btn @click="isClicked = !isClicked" :color="(isClicked && obj.gameData[`ques${step}`].ans === obj.gameData[`ques${step}`].option_1) ? 'green' : 'red'" :disabled="isClicked" size="x-large" width="250" class="ml-16 mb-2">
+        <v-btn @click="isClicked = !isClicked" :color="(isClicked && obj.gameData[`ques${step}`].ans === obj.gameData[`ques${step}`].option_1) ? 'green' : 'grey'" :disabled="isClicked" size="x-large" width="250" class="ml-16 mb-2">
             <span align="center"> {{obj.gameData[`ques${step}`].option_1}}</span>
         </v-btn> 
-        <v-btn @click="isClicked = !isClicked" :color="(isClicked && obj.gameData[`ques${step}`].ans === obj.gameData[`ques${step}`].option_2) ? 'green' : 'red'" :disabled="isClicked" size="x-large" width="250" class="ml-16">
+        <v-btn @click="isClicked = !isClicked" :color="(isClicked && obj.gameData[`ques${step}`].ans === obj.gameData[`ques${step}`].option_2) ? 'green' : 'grey'" :disabled="isClicked" size="x-large" width="250" class="ml-16">
             <span align="center"> {{obj.gameData[`ques${step}`].option_2}}</span>
         </v-btn>        
     </v-row>
     <v-row no-gutters class="mr-16 mt-2" style="justify-content:center; align-content: center;">
-        <v-btn @click="isClicked = !isClicked" :color="(isClicked && obj.gameData[`ques${step}`].ans === obj.gameData[`ques${step}`].option_3) ? 'green' : 'red'" :disabled="isClicked" size="x-large" width="250" class="ml-16 mb-2">
+        <v-btn @click="isClicked = !isClicked" :color="(isClicked && obj.gameData[`ques${step}`].ans === obj.gameData[`ques${step}`].option_3) ? 'green' : 'grey'" :disabled="isClicked" size="x-large" width="250" class="ml-16 mb-2">
             <span align="center"> {{obj.gameData[`ques${step}`].option_3}}</span>
         </v-btn> 
-        <v-btn @click="isClicked = !isClicked" :color="(isClicked && obj.gameData[`ques${step}`].ans === obj.gameData[`ques${step}`].option_4) ? 'green' : 'red'" :disabled="isClicked" size="x-large" width="250" class="ml-16">
+        <v-btn @click="isClicked = !isClicked" :color="(isClicked && obj.gameData[`ques${step}`].ans === obj.gameData[`ques${step}`].option_4) ? 'green' : 'grey'" :disabled="isClicked" size="x-large" width="250" class="ml-16">
             <span align="center"> {{obj.gameData[`ques${step}`].option_4}}</span>
         </v-btn>        
     </v-row>
     <v-row class="mt-5" justify="center">
         
-        <v-btn @click="step++; isClicked = false" size="x-large" color="#A8D9F8" width="360" variant="flat" align="center">
-            <span align="center"> Next</span>
+        <v-btn @click="step++; isClicked = false" :disabled="isClicked === false" size="x-large" color="#A8D9F8" width="360" variant="flat" align="center">
+            <span align="center"> Next <v-icon>mdi-arrow-right-bold</v-icon> {{ step }}/{{ totalQues }}</span>
         </v-btn>
         
     </v-row>
@@ -39,7 +39,8 @@
 
     const game = useGameStore()
     const obj = game.getEasyGame
-    console.log(obj)
+    console.log(Object.keys(obj[0].gameData).length)
+    const totalQues = Object.keys(obj[0].gameData).length
 
     const step = ref(1)
     const nextQuestion = () => {

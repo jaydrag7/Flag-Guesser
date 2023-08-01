@@ -8,18 +8,18 @@
         </v-card>
     </v-row>
     <v-row no-gutters class="mr-16 mt-10" style="justify-content:center; align-content: center;">
-        <v-btn @click="isClicked = !isClicked" :color="(isClicked && obj.gameData[`ques${step}`].ans === obj.gameData[`ques${step}`].option_1) ? 'green' : 'red'" :disabled="isClicked" size="x-large" width="150" class="ml-16">
+        <v-btn @click="isClicked = !isClicked" :color="(isClicked && obj.gameData[`ques${step}`].ans === obj.gameData[`ques${step}`].option_1) ? 'green' : 'red'" :disabled="isClicked" size="x-large" width="250" class="ml-16 mb-2">
             <span align="center"> {{obj.gameData[`ques${step}`].option_1}}</span>
         </v-btn> 
-        <v-btn @click="isClicked = !isClicked" :color="(isClicked && obj.gameData[`ques${step}`].ans === obj.gameData[`ques${step}`].option_2) ? 'green' : 'red'" :disabled="isClicked" size="x-large" width="150" class="ml-16">
+        <v-btn @click="isClicked = !isClicked" :color="(isClicked && obj.gameData[`ques${step}`].ans === obj.gameData[`ques${step}`].option_2) ? 'green' : 'red'" :disabled="isClicked" size="x-large" width="250" class="ml-16">
             <span align="center"> {{obj.gameData[`ques${step}`].option_2}}</span>
         </v-btn>        
     </v-row>
     <v-row no-gutters class="mr-16 mt-2" style="justify-content:center; align-content: center;">
-        <v-btn @click="isClicked = !isClicked" :color="(isClicked && obj.gameData[`ques${step}`].ans === obj.gameData[`ques${step}`].option_3) ? 'green' : 'red'" :disabled="isClicked" size="x-large" width="150" class="ml-16">
+        <v-btn @click="isClicked = !isClicked" :color="(isClicked && obj.gameData[`ques${step}`].ans === obj.gameData[`ques${step}`].option_3) ? 'green' : 'red'" :disabled="isClicked" size="x-large" width="250" class="ml-16 mb-2">
             <span align="center"> {{obj.gameData[`ques${step}`].option_3}}</span>
         </v-btn> 
-        <v-btn @click="isClicked = !isClicked" :color="(isClicked && obj.gameData[`ques${step}`].ans === obj.gameData[`ques${step}`].option_4) ? 'green' : 'red'" :disabled="isClicked" size="x-large" width="150" class="ml-16">
+        <v-btn @click="isClicked = !isClicked" :color="(isClicked && obj.gameData[`ques${step}`].ans === obj.gameData[`ques${step}`].option_4) ? 'green' : 'red'" :disabled="isClicked" size="x-large" width="250" class="ml-16">
             <span align="center"> {{obj.gameData[`ques${step}`].option_4}}</span>
         </v-btn>        
     </v-row>

@@ -14,7 +14,7 @@
                 </v-btn>
             </v-row>
             <v-row justify="center" class="mt-16">
-                <v-btn height="50" width="120" variant="elevated" elevation="10" class="rounded-pill hard-btn">
+                <v-btn @click="goToGame(); games.getGames('hard')" height="50" width="120" variant="elevated" elevation="10" class="rounded-pill hard-btn">
                      Hard <v-img src="shocked.png" width="20"/>
                 </v-btn>
             </v-row>

@@ -26,7 +26,7 @@ export const useGameStore = defineStore('gameprofile' ,{
         getGames(gameMode: String){
             try{
                 onValue(child(ref(db),`${gameMode}`), (snapshot:any) => {
-                    console.log(Object.values(snapshot.val()))
+                    //console.log(Object.values(snapshot.val()))
                     this.games = snapshot.val()
             
                 })

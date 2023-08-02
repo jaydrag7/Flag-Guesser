@@ -4,17 +4,17 @@
             <v-img class="mt-5" src="earth-globe.png" height="80"/>
             <v-card-title class="text-h5"> Guess The Flag !</v-card-title>
             <v-row justify="center" class="mt-16">
-                <v-btn @click="goToGame(); games.getGames('easy')" height="50" width="120" variant="elevated" elevation="10" class="rounded-pill easy-btn">
+                <v-btn @click="games.getGames('easy'); goToGame()" height="50" width="120" variant="elevated" elevation="10" class="rounded-pill easy-btn">
                      Easy <v-img src="cool.png" width="20"/>
                 </v-btn>
             </v-row>
             <v-row justify="center" class="mt-16">
-                <v-btn @click="goToGame(); games.getGames('medium')" height="50" width="120" variant="elevated" elevation="10" class="rounded-pill medium-btn">
+                <v-btn @click="games.getGames('medium'); goToGame()" height="50" width="120" variant="elevated" elevation="10" class="rounded-pill medium-btn">
                      Medium <v-img src="crying.png" width="20"/>
                 </v-btn>
             </v-row>
             <v-row justify="center" class="mt-16">
-                <v-btn @click="goToGame(); games.getGames('hard')" height="50" width="120" variant="elevated" elevation="10" class="rounded-pill hard-btn">
+                <v-btn @click="games.getGames('hard'); goToGame()" height="50" width="120" variant="elevated" elevation="10" class="rounded-pill hard-btn">
                      Hard <v-img src="shocked.png" width="20"/>
                 </v-btn>
             </v-row>

@@ -50,7 +50,7 @@
     function tallyPoints(option,ans){
         if(option === ans){
             pointStanding.value+=pointStanding.value
-            console.log(pointStanding.value)
+            //console.log(pointStanding.value)
         }
 
     }

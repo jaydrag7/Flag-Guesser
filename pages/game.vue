@@ -1,6 +1,6 @@
 <template>
-    <gameSetup/>
+    <GameSetup/>
 </template>
 <script setup>
-    import gameSetup from '~/components/gameSetup.vue';
+    import GameSetup from '~/components/GameSetup.vue'
 </script>

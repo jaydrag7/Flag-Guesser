@@ -4,33 +4,48 @@
             <v-img class="mt-5" src="earth-globe.png" height="80"/>
             <v-card-title class="text-h5"> Guess The Flag !</v-card-title>
             <v-row justify="center" class="mt-16">
-                <v-btn @click="games.getGames('easy'); goToGame()" height="50" width="120" variant="elevated" elevation="10" class="rounded-pill easy-btn">
+                <v-btn @click="getGameMode('easy'),gotToGame()"  height="50" width="120" variant="elevated" elevation="10" class="rounded-pill easy-btn">
                      Easy <v-img src="cool.png" width="20"/>
                 </v-btn>
             </v-row>
             <v-row justify="center" class="mt-16">
-                <v-btn @click="games.getGames('medium'); goToGame()" height="50" width="120" variant="elevated" elevation="10" class="rounded-pill medium-btn">
+                <v-btn @click="getGameMode('medium'), gotToGame()" height="50" width="120" variant="elevated" elevation="10" class="rounded-pill medium-btn">
                      Medium <v-img src="crying.png" width="20"/>
                 </v-btn>
             </v-row>
             <v-row justify="center" class="mt-16">
-                <v-btn @click="games.getGames('hard'); goToGame()" height="50" width="120" variant="elevated" elevation="10" class="rounded-pill hard-btn">
+                <v-btn @click="getGameMode('hard'), gotToGame()" height="50" width="120" variant="elevated" elevation="10" class="rounded-pill hard-btn">
                      Hard <v-img src="shocked.png" width="20"/>
                 </v-btn>
             </v-row>
         </v-card>
     </v-row>
+
     
 </template>
 <script setup>
-    import {useGameStore} from '~~/store/games'
+    import {useGameStore} from '@/store/games'
+    //import GameSetup from '~/components/GameSetup'
 
     const games = useGameStore()
     const router = useRouter()
-    function goToGame() {
-        router.push('/game')
-        
+    function gotToGame(){
+            router.push('/game') 
+
+           
     } 
+    async function getGameMode(mode){
+        try{
+            return await games.getGames(mode)
+            //console.log(games.getGames(mode))
+
+        }
+        catch(error){
+            console.error(error)
+        }         
+       
+
+    }
 </script>
 <style>
     .easy-btn:hover{

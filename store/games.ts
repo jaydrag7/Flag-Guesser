@@ -1,5 +1,7 @@
 import { db } from "@/utils/firebase";
+import { error } from "console";
 import { child, get, onValue, ref, update  } from "firebase/database";
+import { resolve } from "path";
 import { defineStore } from "pinia";
 
 interface GameProfile{
@@ -23,19 +25,24 @@ export const useGameStore = defineStore('gameprofile' ,{
 
     },
     actions: {
-        getGames(gameMode: String){
+        async getGames(mode: String){
             try{
-                onValue(child(ref(db),`${gameMode}`), (snapshot:any) => {
-                    //console.log(Object.values(snapshot.val()))
-                    this.games = snapshot.val()
-            
-                })
 
+                    const data = await get(child(ref(db),`${mode}`))
+                    if(data.exists()){
+                        this.games = Object.values(data.val())
+
+                        //console.log(this.games[0].quesImg)
+
+                    }
+                
             }
             catch(err){
-                console.error(err)
+                console.log(err)
+
             }
         }
-
     }
 })
+              
+                

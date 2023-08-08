@@ -2,7 +2,7 @@
     <v-row style="justify-content: center;"  class="mt-5">
         <v-btn variant="text" icon="mdi-home" class="" href="/" color="#000"></v-btn>
     </v-row>
-    <v-col v-if="(game.games.length) && (count < 10)">
+    <v-col v-if="(game.games.length) && (count < game.quesCount + 1)">
         <v-row justify-lg="center" class="mt-10" style="justify-content: center; align-content: center;">
         <v-card width="350" height="200" :image="game.games[step].quesImg">
         </v-card>
@@ -26,13 +26,13 @@
     <v-row class="mt-5" justify="center">
         
         <v-btn @click="step++;count++; isClicked = false" :disabled="isClicked === false" size="x-large" color="#A8D9F8" width="360" variant="flat" align="center">
-            <span align="center"> Next <v-icon>mdi-arrow-right-bold</v-icon> {{ count }}/{{ 9 }}</span>
+            <span align="center"> Next <v-icon>mdi-arrow-right-bold</v-icon> {{ count }}/{{game.quesCount }}</span>
         </v-btn>
         
     </v-row>
 
     </v-col>
-    <v-row v-if="(count) === 10" style="justify-content: center;"  class="mt-10">
+    <v-row v-if="(game.games.length) && (count === game.quesCount + 1)" style="justify-content: center;"  class="mt-10">
         <PointsCard :points="pointStanding"/>
     </v-row>
 
@@ -42,10 +42,6 @@
     import PointsCard from "~/components/PointsCard.vue"
 
     const game = useGameStore()
-    //const quesCount = (game.games).length
-
-    //console.log(quesCount)
-    //const totalQues = test
     const pointStanding = ref(40)
 
     function tallyPoints(option,ans){

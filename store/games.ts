@@ -6,10 +6,12 @@ import { defineStore } from "pinia";
 
 interface GameProfile{
     games: any,
+    quesCount: any,
 }
 export const useGameStore = defineStore('gameprofile' ,{
     state: (): GameProfile => ({
         games: [],
+        quesCount: 0,
 
 
     }),
@@ -22,6 +24,9 @@ export const useGameStore = defineStore('gameprofile' ,{
             ]
 
         },
+        // getCount(state){
+        //     return state.quesCount
+        // }
 
     },
     actions: {
@@ -31,8 +36,8 @@ export const useGameStore = defineStore('gameprofile' ,{
                     const data = await get(child(ref(db),`${mode}`))
                     if(data.exists()){
                         this.games = Object.values(data.val())
-
-                        //console.log(this.games[0].quesImg)
+                        this.quesCount = this.games.length
+                        //console.log(this.quesCount)
 
                     }
                 
